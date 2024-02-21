@@ -1,10 +1,10 @@
 package dev.aleixmorgadas.nothex.web;
 
+import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(TeamController.URI)
@@ -14,6 +14,11 @@ public class TeamController {
     @PostMapping
     public ResponseEntity<TeamResponse> createTeam(@RequestBody TeamRequest teamRequest) {
         return ResponseEntity.ok(new TeamResponse(teamRequest.name()));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<TeamResponse>> seeAllTeams() {
+        return ResponseEntity.ok(List.of(new TeamResponse("Benefits Team")));
     }
 
     public record TeamRequest(String name) {
