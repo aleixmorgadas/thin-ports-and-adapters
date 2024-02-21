@@ -20,4 +20,8 @@ public class AbstractIntegrationTest {
     @Container
     @ServiceConnection
     static PostgreSQLContainer<?> postgreSQLContainer = new PostgreSQLContainer<>(DockerImageName.parse("postgres:latest"));
+
+    static {
+        postgreSQLContainer.start();
+    }
 }
