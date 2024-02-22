@@ -1,4 +1,4 @@
-package dev.aleixmorgadas.nothex.domain;
+package dev.aleixmorgadas.thinportsandadapters.domain;
 
 import org.springframework.data.repository.ListCrudRepository;
 import org.springframework.stereotype.Repository;

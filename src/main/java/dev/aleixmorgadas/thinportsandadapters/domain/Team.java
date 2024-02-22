@@ -1,4 +1,4 @@
-package dev.aleixmorgadas.nothex.domain;
+package dev.aleixmorgadas.thinportsandadapters.domain;
 
 import jakarta.persistence.*;
 

@@ -1,8 +1,8 @@
-package dev.aleixmorgadas.nothex.web;
+package dev.aleixmorgadas.thinportsandadapters.web;
 
-import dev.aleixmorgadas.nothex.domain.Team;
-import dev.aleixmorgadas.nothex.domain.TeamData;
-import dev.aleixmorgadas.nothex.domain.TeamService;
+import dev.aleixmorgadas.thinportsandadapters.domain.Team;
+import dev.aleixmorgadas.thinportsandadapters.domain.TeamData;
+import dev.aleixmorgadas.thinportsandadapters.domain.TeamService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

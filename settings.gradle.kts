@@ -1,1 +1,1 @@
-rootProject.name = "not-hex"
+rootProject.name = "thin-ports-and-adapters"

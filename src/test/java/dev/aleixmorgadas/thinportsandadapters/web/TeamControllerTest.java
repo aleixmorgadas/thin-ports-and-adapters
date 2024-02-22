@@ -1,12 +1,11 @@
-package dev.aleixmorgadas.nothex.web;
+package dev.aleixmorgadas.thinportsandadapters.web;
 
-import dev.aleixmorgadas.nothex.AbstractIntegrationTest;
-import dev.aleixmorgadas.nothex.domain.TeamRepository;
+import dev.aleixmorgadas.thinportsandadapters.AbstractIntegrationTest;
+import dev.aleixmorgadas.thinportsandadapters.domain.TeamRepository;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;

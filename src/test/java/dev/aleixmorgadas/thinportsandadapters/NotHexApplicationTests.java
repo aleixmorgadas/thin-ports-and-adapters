@@ -1,7 +1,6 @@
-package dev.aleixmorgadas.nothex;
+package dev.aleixmorgadas.thinportsandadapters;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
 class NotHexApplicationTests extends AbstractIntegrationTest {
 
