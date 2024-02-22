@@ -19,7 +19,7 @@ public class TeamController {
 
     @PostMapping
     public ResponseEntity<TeamData> createTeam(@RequestBody TeamRequest teamRequest) {
-        var team = teamService.createTeam(new Team(UUID.randomUUID(), teamRequest.name()));
+        var team = teamService.createTeam(teamRequest.name());
         return ResponseEntity.ok(new TeamData(team.name()));
     }
 
