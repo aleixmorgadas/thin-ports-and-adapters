@@ -1,6 +1,7 @@
 package dev.aleixmorgadas.nothex.web;
 
 import dev.aleixmorgadas.nothex.domain.Team;
+import dev.aleixmorgadas.nothex.domain.TeamData;
 import dev.aleixmorgadas.nothex.domain.TeamService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -17,21 +18,18 @@ public class TeamController {
     private final TeamService teamService;
 
     @PostMapping
-    public ResponseEntity<TeamResponse> createTeam(@RequestBody TeamRequest teamRequest) {
+    public ResponseEntity<TeamData> createTeam(@RequestBody TeamRequest teamRequest) {
         var team = teamService.createTeam(new Team(UUID.randomUUID(), teamRequest.name()));
-        return ResponseEntity.ok(new TeamResponse(team.name()));
+        return ResponseEntity.ok(new TeamData(team.name()));
     }
 
     @GetMapping
-    public ResponseEntity<List<TeamResponse>> seeAllTeams() {
+    public ResponseEntity<List<TeamData>> seeAllTeams() {
         return ResponseEntity.ok(teamService.seeAllTeams().stream()
-                .map(team -> new TeamResponse(team.name()))
+                .map(team -> new TeamData(team.name()))
                 .toList());
     }
 
     public record TeamRequest(String name) {
-    }
-
-    public record TeamResponse(String name) {
     }
 }
