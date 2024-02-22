@@ -39,8 +39,7 @@ class TeamController {
 interface TeamRepository extends ListCrudRepository<Team, Long> {
 }
 
-// The SQL Adapter of the TeamRepositoryPort is
-// provided by Spring Data JPA.
+// The SQL Adapter of the TeamRepositoryPort is provided by Spring Data JPA.
 ```
 
 ## Running the application
