@@ -6,7 +6,7 @@ import java.util.UUID;
 
 
 @Entity(name = "teams")
-public class Team {
+class Team {
     @Id
     @GeneratedValue
     private UUID id;

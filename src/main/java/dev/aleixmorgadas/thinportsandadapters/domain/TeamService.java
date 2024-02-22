@@ -11,12 +11,16 @@ import java.util.UUID;
 public class TeamService {
     private final TeamRepository teamRepository;
 
-    public Team createTeam(String name) {
-        return teamRepository.save(new Team(UUID.randomUUID(), name));
+    public TeamData createTeam(String name) {
+        Team team = teamRepository.save(new Team(UUID.randomUUID(), name));
+        return new TeamData(team.name());
     }
 
-    public List<Team> seeAllTeams() {
-        return teamRepository.findAll();
+    public List<TeamData> seeAllTeams() {
+        return teamRepository.findAll()
+                .stream()
+                .map(team -> new TeamData(team.name()))
+                .toList();
     }
 
 }
