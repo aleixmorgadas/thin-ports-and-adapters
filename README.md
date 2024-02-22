@@ -25,6 +25,7 @@ A possible Spring Boot implementation of the adapters is:
 
 ```java
 // RestControllerAdapter
+@RestController
 class TeamController {
     private final TeamService teamService;
     
@@ -38,7 +39,7 @@ class TeamController {
 interface TeamRepository extends ListCrudRepository<Team, Long> {
 }
 
-// The SQL implementation of the TeamRepositoryPort is
+// The SQL Adapter of the TeamRepositoryPort is
 // provided by Spring Data JPA.
 ```
 
@@ -48,13 +49,12 @@ interface TeamRepository extends ListCrudRepository<Team, Long> {
 ./gradlew bootTestRun
 ```
 
-:information: It uses [Spring Boot integration][sbit] with Testcontainers to spin up a PostgreSQL container.
+ℹ️ It uses [Spring Boot integration][sbit] with Testcontainers to spin up a PostgreSQL container.
 
 ## Running the tests
 
 ```shell
 ./gradlew test
 ```
-
 
 [sbit]: https://spring.io/blog/2023/06/23/improved-testcontainers-support-in-spring-boot-3-1
