@@ -8,7 +8,7 @@ import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.utility.DockerImageName;
 
 @TestConfiguration(proxyBeanMethods = false)
-public class TestNotHexApplication {
+public class TestThinPAApplication {
 
     @Bean
     @ServiceConnection
@@ -17,7 +17,7 @@ public class TestNotHexApplication {
     }
 
     public static void main(String[] args) {
-        SpringApplication.from(NotHexApplication::main).with(TestNotHexApplication.class).run(args);
+        SpringApplication.from(ThinPAApplication::main).with(TestThinPAApplication.class).run(args);
     }
 
 }
