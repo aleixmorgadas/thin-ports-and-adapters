@@ -48,6 +48,16 @@ interface TeamRepository extends ListCrudRepository<Team, Long> {
 ./gradlew bootTestRun
 ```
 
+### Using the API
+
+```shell
+curl -X GET http://localhost:8080/teams
+``` 
+
+```shell
+curl -X POST -H "Content-Type: application/json" -d '{"name": "Team 1"}' http://localhost:8080/teams
+```
+
 ℹ️ It uses [Spring Boot integration][sbit] with Testcontainers to spin up a PostgreSQL container.
 
 ## Running the tests
