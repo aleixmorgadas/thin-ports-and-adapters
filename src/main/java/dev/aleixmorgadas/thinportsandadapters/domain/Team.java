@@ -1,11 +1,13 @@
 package dev.aleixmorgadas.thinportsandadapters.domain;
 
 import jakarta.persistence.*;
+import lombok.ToString;
 
 import java.util.UUID;
 
 
 @Entity(name = "teams")
+@ToString
 class Team {
     @Id
     @GeneratedValue

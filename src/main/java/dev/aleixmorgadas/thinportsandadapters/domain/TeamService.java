@@ -1,5 +1,6 @@
 package dev.aleixmorgadas.thinportsandadapters.domain;
 
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,14 +14,21 @@ public class TeamService {
 
     public TeamData createTeam(String name) {
         Team team = teamRepository.save(new Team(UUID.randomUUID(), name));
-        return new TeamData(team.name());
+        return new TeamData(team.id().toString(), team.name());
     }
 
     public List<TeamData> seeAllTeams() {
         return teamRepository.findAll()
                 .stream()
-                .map(team -> new TeamData(team.name()))
+                .map(team -> new TeamData(team.id().toString(), team.name()))
                 .toList();
     }
 
+    @Transactional
+    public TeamData renameTeam(String id, String name) {
+        var team = teamRepository.findById(UUID.fromString(id))
+                .orElseThrow(() -> new IllegalArgumentException("Team not found"));
+        team.rename(name);
+        return new TeamData(team.id().toString(), team.name());
+    }
 }

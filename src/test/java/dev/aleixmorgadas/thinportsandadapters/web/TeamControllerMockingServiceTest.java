@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.springframework.http.HttpStatus;
 
+import java.util.UUID;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.mock;
@@ -27,7 +29,8 @@ public class TeamControllerMockingServiceTest {
 
     @Test
     public void createTeam() {
-        when(teamService.createTeam("Benefits Team")).thenReturn(new TeamData("Benefits Team"));
+        when(teamService.createTeam("Benefits Team"))
+                .thenReturn(new TeamData(UUID.randomUUID().toString(), "Benefits Team"));
 
         var response = teamController.createTeam(new TeamController.TeamRequest("Benefits Team"));
         assertNotNull(response);
