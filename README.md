@@ -60,6 +60,10 @@ curl -X GET http://localhost:8080/teams
 curl -X POST -H "Content-Type: application/json" -d '{"name": "Team 1"}' http://localhost:8080/teams
 ```
 
+```shell
+curl -X PATCH -H "Content-Type: application/json" -d '{"name": "Team 1"}' http://localhost:8080/teams/{id}/rename
+```
+
 ## Running the tests
 
 ```shell

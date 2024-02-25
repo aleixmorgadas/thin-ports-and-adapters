@@ -26,7 +26,7 @@ public class TeamController {
         return ResponseEntity.ok(teamService.seeAllTeams());
     }
 
-    @PostMapping("/{id}/rename")
+    @PatchMapping("/{id}/rename")
     public ResponseEntity<TeamData> renameTeam(
             @PathVariable String id,
             @RequestBody TeamRequest teamRequest) {

@@ -11,8 +11,7 @@ import org.springframework.http.MediaType;
 import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -57,7 +56,7 @@ class TeamControllerE2ETest extends AbstractIntegrationTest {
     @Test
     @Order(3)
     void renameTeam() throws Exception {
-        mockMvc.perform(post("/teams/" + teamId + "/rename")
+        mockMvc.perform(patch("/teams/" + teamId + "/rename")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{\"name\": \"New Benefits Team\"}"))
                 .andExpect(status().isOk())
