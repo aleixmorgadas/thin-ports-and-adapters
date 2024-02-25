@@ -13,7 +13,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class TeamControllerTest extends AbstractIntegrationTest {
+class TeamControllerE2ETest extends AbstractIntegrationTest {
     @Autowired
     private TeamRepository teamRepository;
 
