@@ -9,6 +9,7 @@ import java.util.UUID;
 
 @Service
 @AllArgsConstructor
+@Transactional
 public class TeamService {
     private final TeamRepository teamRepository;
 
@@ -24,11 +25,16 @@ public class TeamService {
                 .toList();
     }
 
-    @Transactional
     public TeamData renameTeam(String id, String name) {
         var team = teamRepository.findById(UUID.fromString(id))
                 .orElseThrow(() -> new IllegalArgumentException("Team not found"));
         team.rename(name);
+        return new TeamData(team.id().toString(), team.name());
+    }
+
+    public TeamData getTeam(String id) {
+        var team = teamRepository.findById(UUID.fromString(id))
+                .orElseThrow(() -> new IllegalArgumentException("Team not found"));
         return new TeamData(team.id().toString(), team.name());
     }
 }

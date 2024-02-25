@@ -56,12 +56,18 @@ class TeamControllerE2ETest extends AbstractIntegrationTest {
     @Test
     @Order(3)
     void renameTeam() throws Exception {
-        mockMvc.perform(patch("/teams/" + teamId + "/rename")
+        var response = mockMvc.perform(patch("/teams/" + teamId + "/rename")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{\"name\": \"New Benefits Team\"}"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.name").value("New Benefits Team"));
+                .andExpect(jsonPath("$.name").value("New Benefits Team"))
+                .andReturn();
 
-        assertThat(teamService.seeAllTeams().get(0).name()).isEqualTo("New Benefits Team");
+        // Extract the teamId from the response for later use
+        var teamId = (String) JsonPath.read(response.getResponse().getContentAsString(), "$.id");
+
+        assertThat(teamService.getTeam(teamId).name())
+                .withFailMessage("Team name not updated")
+                .isEqualTo("New Benefits Team");
     }
 }
