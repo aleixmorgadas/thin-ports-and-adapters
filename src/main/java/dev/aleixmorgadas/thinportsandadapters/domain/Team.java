@@ -27,4 +27,8 @@ class Team {
     public String name() {
         return name;
     }
+
+    public void rename(String name) {
+        this.name = name;
+    }
 }
