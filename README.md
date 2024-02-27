@@ -50,25 +50,27 @@ interface TeamRepository extends ListCrudRepository<Team, Long> {
 
 Yes, a ports and adapters architecture is only this.
 
-Patterns like Domain Events, Aggregates, Value Objects, CQRS and Event Sourcing, all those patters go beyond the intention or responsibilty of a ports and adapters architecture. Indeed, a P&A architecture works well with CRUD models (or models with not many domain logic) as well as Domain Models.
+Patterns like Domain Events, Aggregates, Value Objects, CQRS and Event Sourcing, all those patters go beyond the intention or responsibility of a ports and adapters architecture. Indeed, a P&A architecture works well with CRUD models (or models with not many domain logic) as well as Domain Models.
 
-The beautiy of it is that it adapts to each part of your business and you can choose the right amount of abstraction/complexity for each scenario.
+The beauty of it is that it adapts to each part of your business, and you can choose the right amount of abstraction/complexity for each scenario.
 
 ### And testing?
 
-IMHO, this is were a P&A shines. It really helps you create a solid and adaptable test suite. Here a short example of test types.
+IMHO, this is where a P&A shines. It really helps you create a solid and adaptable test suite. Here a short example of test types.
 
-**End to end tests**
+**End-to-end tests**
 
 - [TeamControllerE2ETest](src/test/java/dev/aleixmorgadas/thinportsandadapters/web/TeamControllerE2ETest.java)
 
 **Integration test**
 
+- HTTP adapter. [TeamControllerIntegrationTest](https://github.com/aleixmorgadas/thin-ports-and-adapters/blob/main/src/test/java/dev/aleixmorgadas/thinportsandadapters/web/TeamControllerIntegrationTest.java)
 - Service and SQL Repository. [TeamServiceIntegrationTest](https://github.com/aleixmorgadas/thin-ports-and-adapters/blob/main/src/test/java/dev/aleixmorgadas/thinportsandadapters/domain/TeamServiceIntegrationTest.java)
+- SQL Repository. [TeamRepositoryIntegrationTest](https://github.com/aleixmorgadas/thin-ports-and-adapters/blob/main/src/test/java/dev/aleixmorgadas/thinportsandadapters/domain/TeamRepositoryIntegrationTest.java)
 
 **Unit test**
 
-- HTTP adapter. [TeamControllerMockingServiceTest](https://github.com/aleixmorgadas/thin-ports-and-adapters/blob/main/src/test/java/dev/aleixmorgadas/thinportsandadapters/web/TeamControllerMockingServiceTest.java)
+- HTTP adapter. [TeamControllerUnitTest](https://github.com/aleixmorgadas/thin-ports-and-adapters/blob/main/src/test/java/dev/aleixmorgadas/thinportsandadapters/web/TeamControllerUnitTest.java)
 - Service. [TeamServiceTest](https://github.com/aleixmorgadas/thin-ports-and-adapters/blob/main/src/test/java/dev/aleixmorgadas/thinportsandadapters/domain/TeamServiceTest.java)
 - Domain. [TeamTest](https://github.com/aleixmorgadas/thin-ports-and-adapters/blob/main/src/test/java/dev/aleixmorgadas/thinportsandadapters/domain/TeamTest.java)
 

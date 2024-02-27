@@ -3,7 +3,6 @@ package dev.aleixmorgadas.thinportsandadapters.web;
 
 import dev.aleixmorgadas.thinportsandadapters.domain.TeamData;
 import dev.aleixmorgadas.thinportsandadapters.domain.TeamService;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -17,7 +16,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class TeamControllerMockingServiceTest {
+public class TeamControllerUnitTest {
     private TeamController teamController;
     private TeamService teamService;
 
