@@ -52,7 +52,7 @@ Yes, a ports and adapters architecture is only this.
 
 Patterns like Domain Events, Aggregates, Value Objects, CQRS and Event Sourcing, all those patters go beyond the intention or responsibilty of a ports and adapters architecture. Indeed, a P&A architecture works well with CRUD models (or models with not many domain logic) as well as Domain Models.
 
-The beautiy of it is that it adapts to each part of your business and you can choice the right amount of abstraction/complexity for each scenario.
+The beautiy of it is that it adapts to each part of your business and you can choose the right amount of abstraction/complexity for each scenario.
 
 ### And testing?
 
