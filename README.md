@@ -1,5 +1,7 @@
 # thin-ports-and-adapters
 
+![GitHub Discussions](https://img.shields.io/github/discussions/aleixmorgadas/thin-ports-and-adapters)
+
 This is an example of a Ports and Adapters (P&A for short) architecture in Java 21 and Spring Boot.
 
 We can define a simple P&A architecture as follows:
