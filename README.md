@@ -42,6 +42,32 @@ interface TeamRepository extends ListCrudRepository<Team, Long> {
 // The SQL Adapter of the TeamRepositoryPort is provided by Spring Data JPA.
 ```
 
+### Is it only this?
+
+Yes, a ports and adapters architecture is only this.
+
+Patterns like Domain Events, Aggregates, Value Objects, CQRS and Event Sourcing, all those patters go beyond the intention or responsibilty of a ports and adapters architecture. Indeed, a P&A architecture works well with CRUD models (or models with not many domain logic) as well as Domain Models.
+
+The beautiy of it is that it adapts to each part of your business and you can choice the right amount of abstraction/complexity for each scenario.
+
+### And testing?
+
+IMHO, this is were a P&A shines. It really helps you create a solid and adaptable test suite. Here a short example of test types.
+
+**End to end tests**
+
+- [TeamControllerE2ETest](src/test/java/dev/aleixmorgadas/thinportsandadapters/web/TeamControllerE2ETest.java)
+
+**Integration test**
+
+- Service and SQL Repository. [TeamServiceIntegrationTest](https://github.com/aleixmorgadas/thin-ports-and-adapters/blob/main/src/test/java/dev/aleixmorgadas/thinportsandadapters/domain/TeamServiceIntegrationTest.java)
+
+**Unit test**
+
+- HTTP adapter. [TeamControllerMockingServiceTest](https://github.com/aleixmorgadas/thin-ports-and-adapters/blob/main/src/test/java/dev/aleixmorgadas/thinportsandadapters/web/TeamControllerMockingServiceTest.java)
+- Service. [TeamServiceTest](https://github.com/aleixmorgadas/thin-ports-and-adapters/blob/main/src/test/java/dev/aleixmorgadas/thinportsandadapters/domain/TeamServiceTest.java)
+- Domain. [TeamTest](https://github.com/aleixmorgadas/thin-ports-and-adapters/blob/main/src/test/java/dev/aleixmorgadas/thinportsandadapters/domain/TeamTest.java)
+
 ## Running the application
 
 ```shell
