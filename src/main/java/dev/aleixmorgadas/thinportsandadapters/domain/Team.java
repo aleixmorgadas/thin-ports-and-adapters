@@ -10,7 +10,6 @@ import java.util.UUID;
 @ToString
 class Team {
     @Id
-    @GeneratedValue
     private UUID id;
     private String name;
 
