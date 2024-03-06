@@ -36,10 +36,10 @@ graph LR
 A possible Spring Boot implementation of the adapters is:
 
 ```java
-// RestControllerAdapter
+// RestControllerAdapter (Primary Adapter)
 @RestController
 class TeamController {
-    private final TeamService teamService;
+    private final TeamService teamService; // Primary Port
     
     @GetMapping("/teams")
     public List<TeamData> getTeams() {
@@ -47,11 +47,11 @@ class TeamController {
     }
 }
 
-// TeamRepositoryPort
+// TeamRepositoryPort (Secondary Port)
 interface TeamRepository extends ListCrudRepository<Team, Long> {
 }
 
-// The SQL Adapter of the TeamRepositoryPort is provided by Spring Data JPA.
+// The SQL Adapter of the TeamRepositoryPort is provided by Spring Data JPA. It is the Secondary Adapter.
 ```
 
 ### Is it only this?
