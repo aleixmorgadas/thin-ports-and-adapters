@@ -23,7 +23,15 @@ graph LR
         Entity
         RepositoryPort
     end
+    
+    PAdapter(Primary Adapter) -.-> RestControllerAdapter
+    PPort(Primary Port) -.-> ApplicationService
+    SAdapter(Secondary Adapter) -.-> RepositorySQLAdapter
+    SPort(Secondary Port) -.-> RepositoryPort
 ```
+
+![ports and adapters example](./.github/assets/hexagonal.svg)
+[Reference](https://codesoapbox.dev/ports-adapters-aka-hexagonal-architecture-explained/)
 
 A possible Spring Boot implementation of the adapters is:
 
